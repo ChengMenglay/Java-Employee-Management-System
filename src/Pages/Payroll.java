@@ -95,7 +95,7 @@ public class Payroll extends JDialog {
                             int salary = rs.getInt("base_salary");
                             ratePerDay = Float.parseFloat(txtRatePerDay.getText());
                             ratePerHours = Float.parseFloat(txtRatePerHours.getText());
-                            totalAmount = (workDay*ratePerDay)+(ph*ratePerHours)+bonus+insurance+salary;
+                            totalAmount = (workDay*ratePerDay)+(ph*ratePerHours)+bonus+insurance;
                             txtTotalAmount.setEditable(false);
                             txtTotalAmount.setText(String.valueOf(totalAmount));
                         }while (rs.next());
@@ -183,7 +183,8 @@ public class Payroll extends JDialog {
         Connection con = DBConnection.getConnection();
         ResultSet rs = null;
         try{
-            PreparedStatement checkStmt = con.prepareStatement("SELECT * FROM employee_management.employee WHERE employee_id = ?");
+            PreparedStatement checkStmt = con.prepareStatement("SELECT * FROM employee_management.payroll pay " +
+                    "INNER JOIN employee_management.employee em ON em.employee_id = pay.employee_id WHERE em.employee_id = ?");
             checkStmt.setInt(1, employee_id);
             rs = checkStmt.executeQuery();
 

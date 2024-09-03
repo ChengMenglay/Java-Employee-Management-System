@@ -111,7 +111,7 @@ public class Report extends JDialog {
                             int salary = rs.getInt("base_salary");
                             ratePerDay = Float.parseFloat(txtRatePerDay.getText());
                             ratePerHours = Float.parseFloat(txtRatePerHours.getText());
-                            totalAmount = (workDay*ratePerDay)+(ph*ratePerHours)+bonus+insurance+salary;
+                            totalAmount = (workDay*ratePerDay)+(ph*ratePerHours)+bonus+insurance;
                             txtTotalAmount.setText(String.valueOf(totalAmount));
                             System.out.println(totalAmount);
                             txtTotalAmount.setEditable(false);
