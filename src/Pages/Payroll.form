@@ -140,7 +140,7 @@
                 </constraints>
                 <properties>
                   <font name="Consolas" size="18" style="1"/>
-                  <text value="PH"/>
+                  <text value="OT"/>
                 </properties>
               </component>
               <component id="22a7c" class="javax.swing.JTextField" binding="txtPH">
@@ -287,17 +287,6 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="5b1fa" class="javax.swing.JButton" binding="saveButton" default-binding="true">
-                <constraints/>
-                <properties>
-                  <autoscrolls value="false"/>
-                  <background color="-14112955"/>
-                  <font name="Consolas" size="16" style="1"/>
-                  <foreground color="-1"/>
-                  <preferredSize width="115" height="34"/>
-                  <text value="Add"/>
-                </properties>
-              </component>
               <component id="1a310" class="javax.swing.JButton" binding="calculateButton" default-binding="true">
                 <constraints/>
                 <properties>
@@ -308,6 +297,17 @@
                   <minimumSize width="78" height="34"/>
                   <preferredSize width="115" height="35"/>
                   <text value="Calculate"/>
+                </properties>
+              </component>
+              <component id="5b1fa" class="javax.swing.JButton" binding="saveButton" default-binding="true">
+                <constraints/>
+                <properties>
+                  <autoscrolls value="false"/>
+                  <background color="-14112955"/>
+                  <font name="Consolas" size="16" style="1"/>
+                  <foreground color="-1"/>
+                  <preferredSize width="115" height="34"/>
+                  <text value="Add"/>
                 </properties>
               </component>
               <component id="22b79" class="javax.swing.JButton" binding="exitButton" default-binding="true">

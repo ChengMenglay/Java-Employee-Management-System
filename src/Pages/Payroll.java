@@ -181,7 +181,17 @@ public class Payroll extends JDialog {
     }
     private static boolean addPayroll(int working_day, float ph, float bonus, float insurance, float rate_per_day, float rate_per_hours, float total_amount, int employee_id){
         Connection con = DBConnection.getConnection();
+        ResultSet rs = null;
         try{
+            PreparedStatement checkStmt = con.prepareStatement("SELECT * FROM employee_management.employee WHERE employee_id = ?");
+            checkStmt.setInt(1, employee_id);
+            rs = checkStmt.executeQuery();
+
+            if (rs.next()) {
+                // ID card already exists, show a message and return false
+                JOptionPane.showMessageDialog(null, "This employee's payroll already exists.");
+                return false;
+            }
             PreparedStatement payrollStmt = con.prepareStatement("INSERT INTO employee_management.payroll(working_day, ph, bonus, insurance, rate_per_day, rate_per_hour, total_amount, employee_id) VALUES (?,?,?,?,?,?,?,?)");
             payrollStmt.setInt(1,working_day);
             payrollStmt.setFloat(2, ph);
