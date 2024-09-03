@@ -10,7 +10,6 @@ public class Home extends JDialog {
     private JButton addEmployeeButton;
     private JButton viewEmployeeButton;
     private JPanel titlePanel;
-    private JLabel titleIcon;
     private JButton updateButton;
     private JButton deleteButton;
     private JButton allowanceButton;
