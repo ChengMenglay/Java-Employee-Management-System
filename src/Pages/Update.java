@@ -51,7 +51,7 @@ public class Update extends JDialog {
         statusComboBox();
         dobDatePicker();
         dohDatePicker();
-        setTitle("Update Employee");
+        setTitle("Employee Information");
         setResizable(false);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setMinimumSize(new Dimension(1300,700));
@@ -187,7 +187,7 @@ public class Update extends JDialog {
                             dispose();
                             new Home().setVisible(true);
                         }else{
-                            JOptionPane.showMessageDialog(Update.this,"Insert an employee data was Fail!");
+                            JOptionPane.showMessageDialog(Update.this,"Can't inset the employee data!");
                         }
                     }
 
@@ -314,7 +314,7 @@ public class Update extends JDialog {
         Connection con = DBConnection.getConnection();
         ResultSet rs =null;
         try {
-            if(EmployeeId != null && !EmployeeId.isEmpty()){
+            if(EmployeeId != null && !EmployeeId.isEmpty() && EmployeeId != ""){
                 PreparedStatement anEmployeeStmt = con.prepareStatement("SELECT * FROM employee_management.employee e\n" +
                         "INNER JOIN employee_management.gender ON gender.gender_id = e.gender_id\n" +
                         "INNER JOIN employee_management.department de ON de.department_id = e.department_id\n" +
@@ -331,7 +331,17 @@ public class Update extends JDialog {
     }
     public static boolean insertEmployeeData(String employee_id_card, String employee_name, int gender_id, String email, String phone_number, String address, int department_id, int position_id, Date date_of_birth, Date date_of_hiring, int base_salary, int status_id, String bank_name, String bank_account_number ){
         Connection con = DBConnection.getConnection();
+        ResultSet rs = null;
         try{
+            PreparedStatement checkStmt = con.prepareStatement("SELECT * FROM employee_management.employee WHERE employee_id_card = ?");
+            checkStmt.setString(1, employee_id_card);
+            rs = checkStmt.executeQuery();
+
+            if (rs.next()) {
+                // ID card already exists, show a message and return false
+                JOptionPane.showMessageDialog(null, "Employee with ID card " + employee_id_card + " already exists.");
+                return false;
+            }
             String query="INSERT INTO employee_management.employee (employee_id_card, employee_name, gender_id, email, phone_number, address, department_id, position_id, date_of_birth, date_of_hiring, base_salary, status_id, bank_name, bank_account_number) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement insertStmt = con.prepareStatement(query);
             insertStmt.setString(1,employee_id_card);
@@ -352,20 +362,25 @@ public class Update extends JDialog {
             return rowAffected>0;
         }catch (SQLException e){
             e.printStackTrace();
-            return false;
         }
+        return false;
     }
     private static boolean deleteAnEmployee(String employeeId){
         Connection con = DBConnection.getConnection();
         try {
             PreparedStatement employeeIdStmt = con.prepareStatement("DELETE FROM employee_management.employee WHERE employee_id_card = ?");
-            employeeIdStmt.setString(1,employeeId);
+            employeeIdStmt.setString(1, employeeId);
             int rowAffected = employeeIdStmt.executeUpdate();
-            return rowAffected>0;
-        }catch (SQLException e){
+
+            if (rowAffected > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
-        return false;
     }
     private boolean updateAnEmployee(int employeeId) {
         Connection con = DBConnection.getConnection();

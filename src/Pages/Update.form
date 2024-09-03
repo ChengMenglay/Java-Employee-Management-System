@@ -396,7 +396,7 @@
         </constraints>
         <properties>
           <font name="Consolas" size="28" style="1"/>
-          <text value="Update Employee Information"/>
+          <text value="Employee Information"/>
         </properties>
       </component>
       <grid id="c4b0a" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">

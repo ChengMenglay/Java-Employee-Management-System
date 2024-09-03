@@ -3,6 +3,7 @@ package Pages;
 import db.DBConnection;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,10 +11,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.List;
+import com.github.lgooddatepicker.components.DatePicker;
+import com.github.lgooddatepicker.components.DatePickerSettings;
 
 public class Report extends JDialog {
     private JPanel contentPane;
-    private JTable table1;
+    private JTable payrollTable;
     private JTextField txtSearch;
     private JButton searchButton;
     private JButton calculateButton;
@@ -30,8 +36,11 @@ public class Report extends JDialog {
     private JTextField txtTotalAmount;
     private JButton deleteButton;
     private JButton printButton;
-    private JPanel StartDatePicker;
-    private JPanel EndDatePicker;
+    private JPanel startPicker;
+    private JPanel endPicker;
+    private JButton sortButton;
+    private DatePicker startDatePicker;
+    private DatePicker endDatePicker;
     private int workDay;
     private float ph;
     private float bonus;
@@ -41,6 +50,8 @@ public class Report extends JDialog {
     private float totalAmount;
     private String employeeIdSearch;
     public Report() {
+        startDatePicker();
+        endDatePicker();
         setTitle("Report");
         setResizable(false);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -48,16 +59,22 @@ public class Report extends JDialog {
         setLocationRelativeTo(null);
         txtTotalAmount.setEditable(false);
         setContentPane(contentPane);
+        ResultSet rs = getPayroll(employeeIdSearch);
+        txtEmployeeId.setEditable(false);
+        txtName.setEditable(false);
+        initialTable(rs);
         searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                employeeIdSearch=txtSearch.getText();
+                employeeIdSearch = txtSearch.getText();
+                initialTable(getPayroll(employeeIdSearch));
                 ResultSet rs = getPayroll(employeeIdSearch);
-                try{
-                    if(!rs.next()){
+                try {
+                    if (!rs.next()) { // Check if the ResultSet is empty
                         clearAllField();
-                        JOptionPane.showMessageDialog(Report.this,"Employee given is not found, please try again!");
-                    }else{
+                        JOptionPane.showMessageDialog(Report.this, "Employee given is not found, please try again!");
+                        initialTable(getPayroll(""));
+                    } else {
                         do{
                             txtEmployeeId.setText(rs.getString("employee_id_card"));
                             txtName.setText(rs.getString("employee_name"));
@@ -70,12 +87,13 @@ public class Report extends JDialog {
                             txtTotalAmount.setText(String.valueOf(rs.getFloat("total_amount")));
                         }while (rs.next());
                     }
-                }catch (SQLException s){
+                } catch (SQLException ex) {
                     clearAllField();
-                    s.printStackTrace();
+                    ex.printStackTrace();
                 }
             }
         });
+
         calculateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -94,8 +112,9 @@ public class Report extends JDialog {
                             ratePerDay = Float.parseFloat(txtRatePerDay.getText());
                             ratePerHours = Float.parseFloat(txtRatePerHours.getText());
                             totalAmount = (workDay*ratePerDay)+(ph*ratePerHours)+bonus+insurance+salary;
-                            txtTotalAmount.setEditable(false);
                             txtTotalAmount.setText(String.valueOf(totalAmount));
+                            System.out.println(totalAmount);
+                            txtTotalAmount.setEditable(false);
                         }while (rs.next());
                     }
                 }catch (SQLException s){
@@ -114,6 +133,7 @@ public class Report extends JDialog {
                     if(updatePayroll()){
                         JOptionPane.showMessageDialog(Report.this,"Update a payroll data is successfully!");
                         clearAllField();
+                        initialTable( getPayroll(employeeIdSearch));
                     }else{
                         clearAllField();
                         JOptionPane.showMessageDialog(Report.this, "Failed to update the employee.");
@@ -129,6 +149,7 @@ public class Report extends JDialog {
                 }else{
                     if(deletePayroll()){
                         JOptionPane.showMessageDialog(Report.this,"Delete a payroll data is successfully!");
+                        initialTable(getPayroll(""));
                         clearAllField();
                     }else{
                         clearAllField();
@@ -145,6 +166,49 @@ public class Report extends JDialog {
                 new Home().setVisible(true);
             }
         });
+        sortButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String startDate = startDatePicker.getDate() != null ? startDatePicker.getDate().toString() : null;
+                String endDate = endDatePicker.getDate() != null ? endDatePicker.getDate().toString() : null;
+                if (startDate != null && endDate != null) {
+                    ResultSet rs = getPayrollByDate(startDate,endDate);
+                    initialTable(rs);
+                } else {
+                    JOptionPane.showMessageDialog(Report.this, "Please select both start and end dates.");
+                }
+            }
+        });
+        printButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    boolean complete = payrollTable.print(JTable.PrintMode.FIT_WIDTH,
+                            new MessageFormat("Payroll Report"),
+                            new MessageFormat("Page {0}"));
+                    if (complete) {
+                        JOptionPane.showMessageDialog(null, "Printing Complete", "Print", JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Printing Cancelled", "Print", JOptionPane.WARNING_MESSAGE);
+                    }
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, "Printing Failed: " + ex.getMessage(), "Print", JOptionPane.ERROR_MESSAGE);
+                    ex.printStackTrace();
+                }
+            }
+        });
+    }
+    private void startDatePicker() {
+        DatePickerSettings dateSettings = new DatePickerSettings();
+        dateSettings.setFormatForDatesCommonEra("yyyy-MM-dd");
+        startDatePicker= new DatePicker(dateSettings);
+        startPicker.add(startDatePicker); // Add the date picker to the center of the panel
+    }
+    private void endDatePicker() {
+        DatePickerSettings dateSettings = new DatePickerSettings();
+        dateSettings.setFormatForDatesBeforeCommonEra("yyyy-MM-dd");
+        endDatePicker = new DatePicker(dateSettings);
+        endPicker.add(endDatePicker);
     }
     private void clearAllField(){
         txtEmployeeId.setText("");
@@ -165,15 +229,88 @@ public class Report extends JDialog {
         ratePerHours=0;
         totalAmount=0;
     }
+    private void initialTable(ResultSet rs) {
+        List<Object[]> payrollList = new ArrayList<>();
+        String[] columns = {
+                "Id Card", "Name", "Position", "Salary", "Working Day", "OT", "Bonus", "Insurance", "Rate Per Day", "Rate Per Hours", "Total Amount"
+        };
+
+        try {
+            if(rs.next()){
+                do{
+                    String idCard = rs.getString("employee_id_card");
+                    String name = rs.getString("employee_name");
+                    String position = rs.getString("position_name");
+                    int salary = rs.getInt("base_salary");
+                    int workDay = rs.getInt("working_day");
+                    float ph = rs.getFloat("ph");
+                    float bonus = rs.getFloat("bonus");
+                    float insurance = rs.getFloat("insurance");
+                    float ratePerDay = rs.getFloat("rate_per_day");
+                    float ratePerHour = rs.getFloat("rate_per_hour");
+                    float totalAmount = rs.getFloat("total_amount");
+                    // Add the data to the payrollList
+                    payrollList.add(new Object[]{
+                            idCard, name, position, salary, workDay, ph, bonus, insurance, ratePerDay, ratePerHour, totalAmount
+                    });
+                }while (rs.next());
+            }
+        } catch (SQLException s) {
+            s.printStackTrace();
+        }finally {
+            try{
+                if(rs != null) rs.close();
+            }catch (SQLException s){
+                s.printStackTrace();
+            }
+
+        }
+        // Convert payrollList to an array and set it to the table model
+        DefaultTableModel model = new DefaultTableModel(payrollList.toArray(new Object[0][0]), columns);
+        payrollTable.setModel(model);
+    }
+
     private static ResultSet getPayroll(String searchEmployeeId){
         Connection con = DBConnection.getConnection();
         ResultSet rs=null;
-        try{
-            PreparedStatement payrollStmt = con.prepareStatement("Select * FROM employee_management.payroll pay INNER JOIN employee_management.employee em ON em.employee_id = pay.employee_id WHERE em.employee_id_card = ?");
-            payrollStmt.setString(1,searchEmployeeId);
-            rs = payrollStmt.executeQuery();
-        }catch (SQLException e){
-            e.printStackTrace();
+        if(searchEmployeeId != null && !searchEmployeeId.isEmpty()){
+            try{
+                PreparedStatement payrollStmt = con.prepareStatement("SELECT * \n" +
+                        "FROM employee_management.payroll pay \n" +
+                        "INNER JOIN employee_management.employee em ON em.employee_id = pay.employee_id \n" +
+                        "INNER JOIN employee_management.position pos ON pos.position_id = em.position_id \n" +
+                        "WHERE em.employee_id_card = ?");
+                payrollStmt.setString(1,searchEmployeeId);
+                rs = payrollStmt.executeQuery();
+            }catch (SQLException e){
+                e.printStackTrace();
+            }
+        }else{
+            try{
+                PreparedStatement payrollStmt = con.prepareStatement("SELECT * FROM employee_management.payroll pay " +
+                        "INNER JOIN employee_management.employee em ON em.employee_id = pay.employee_id " +
+                        "INNER JOIN employee_management.position pos ON pos.position_id  =em.position_id");
+                rs= payrollStmt.executeQuery();
+            }catch (SQLException e){
+                e.printStackTrace();
+            }
+        }
+        return rs;
+    }
+    private static ResultSet getPayrollByDate(String startDate, String endDate){
+        Connection con = DBConnection.getConnection();
+        ResultSet rs=null;
+        if(startDate != null && endDate != null){
+            try{
+                PreparedStatement payrollStmt = con.prepareStatement("SELECT * FROM employee_management.payroll pay " +
+                        "INNER JOIN employee_management.employee em ON em.employee_id = pay.employee_id " +
+                        "INNER JOIN employee_management.position pos ON pos.position_id = em.position_id AND pay.created_at BETWEEN ? AND ? ");
+                payrollStmt.setString(1,startDate);
+                payrollStmt.setString(2,endDate);
+                rs = payrollStmt.executeQuery();
+            }catch (SQLException e){
+                e.printStackTrace();
+            }
         }
         return rs;
     }

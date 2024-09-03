@@ -3,12 +3,12 @@
   <grid id="cbd77" binding="contentPane" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="10" left="10" bottom="10" right="10"/>
     <constraints>
-      <xy x="48" y="54" width="960" height="585"/>
+      <xy x="48" y="54" width="960" height="913"/>
     </constraints>
     <properties/>
     <border type="none"/>
     <children>
-      <grid id="e3588" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="true" same-size-vertically="false" hgap="10" vgap="20">
+      <grid id="e3588" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="20" vgap="20">
         <margin top="20" left="0" bottom="20" right="0"/>
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -16,278 +16,10 @@
         <properties/>
         <border type="none"/>
         <children>
-          <grid id="cbd4e" layout-manager="GridLayoutManager" row-count="5" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-            <margin top="0" left="0" bottom="0" right="0"/>
-            <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties/>
-            <border type="none"/>
-            <children>
-              <component id="d59d8" class="javax.swing.JTextField" binding="txtSearch">
-                <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="40"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <background color="-3355444"/>
-                  <font name="Consolas" size="16" style="1"/>
-                </properties>
-              </component>
-              <component id="55d3d" class="javax.swing.JButton" binding="searchButton" default-binding="true">
-                <constraints>
-                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
-                    <preferred-size width="-1" height="40"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <background color="-15066139"/>
-                  <font name="Consolas" size="18" style="1"/>
-                  <foreground color="-1"/>
-                  <text value="Search"/>
-                </properties>
-              </component>
-              <component id="2357e" class="javax.swing.JButton" binding="calculateButton" default-binding="true">
-                <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
-                    <preferred-size width="135" height="35"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <font name="Consolas" size="16" style="1"/>
-                  <text value="Calculate"/>
-                </properties>
-              </component>
-              <component id="692a7" class="javax.swing.JButton" binding="updateButton" default-binding="true">
-                <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
-                    <preferred-size width="135" height="35"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <font name="Consolas" size="16" style="1"/>
-                  <text value="Update"/>
-                </properties>
-              </component>
-              <component id="f6402" class="javax.swing.JButton" binding="exitButton" default-binding="true">
-                <constraints>
-                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
-                    <preferred-size width="135" height="35"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <font name="Consolas" size="16" style="1"/>
-                  <text value="Exit"/>
-                </properties>
-              </component>
-              <component id="8f9d8" class="javax.swing.JButton" binding="deleteButton" default-binding="true">
-                <constraints>
-                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
-                    <preferred-size width="135" height="35"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <font name="Consolas" size="16" style="1"/>
-                  <text value="Delete"/>
-                </properties>
-              </component>
-            </children>
-          </grid>
-          <grid id="d86a" layout-manager="GridLayoutManager" row-count="9" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="20">
-            <margin top="0" left="0" bottom="0" right="0"/>
-            <constraints>
-              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties/>
-            <border type="none"/>
-            <children>
-              <component id="256fb" class="javax.swing.JLabel">
-                <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <font name="Consolas" size="18" style="1"/>
-                  <text value="Employee Id"/>
-                </properties>
-              </component>
-              <component id="847d" class="javax.swing.JTextField" binding="txtEmployeeId">
-                <constraints>
-                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="35"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <background color="-3355444"/>
-                  <font name="Consolas" size="18" style="1"/>
-                </properties>
-              </component>
-              <component id="421d0" class="javax.swing.JLabel">
-                <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <font name="Consolas" size="18" style="1"/>
-                  <text value="Name"/>
-                </properties>
-              </component>
-              <component id="6e305" class="javax.swing.JTextField" binding="txtName">
-                <constraints>
-                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="-1" height="35"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <background color="-3355444"/>
-                  <font name="Consolas" size="18" style="1"/>
-                </properties>
-              </component>
-              <component id="ce517" class="javax.swing.JLabel">
-                <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <font name="Consolas" size="18" style="1"/>
-                  <text value="Working Day"/>
-                </properties>
-              </component>
-              <component id="e90df" class="javax.swing.JTextField" binding="txtWorkDay">
-                <constraints>
-                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="35"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <background color="-3355444"/>
-                  <font name="Consolas" size="18" style="1"/>
-                </properties>
-              </component>
-              <component id="76d5e" class="javax.swing.JLabel">
-                <constraints>
-                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <font name="Consolas" size="18" style="1"/>
-                  <text value="PH"/>
-                </properties>
-              </component>
-              <component id="afae9" class="javax.swing.JTextField" binding="txtPH">
-                <constraints>
-                  <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="35"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <background color="-3355444"/>
-                  <font name="Consolas" size="18" style="1"/>
-                </properties>
-              </component>
-              <component id="84574" class="javax.swing.JLabel">
-                <constraints>
-                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <font name="Consolas" size="18" style="1"/>
-                  <text value="Bonus"/>
-                </properties>
-              </component>
-              <component id="65a27" class="javax.swing.JTextField" binding="txtBonus">
-                <constraints>
-                  <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="35"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <background color="-3355444"/>
-                  <font name="Consolas" size="18" style="1"/>
-                </properties>
-              </component>
-              <component id="5c72d" class="javax.swing.JLabel">
-                <constraints>
-                  <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <font name="Consolas" size="18" style="1"/>
-                  <text value="Insurance"/>
-                </properties>
-              </component>
-              <component id="7fa1a" class="javax.swing.JTextField" binding="txtInsurance">
-                <constraints>
-                  <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="35"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <background color="-3355444"/>
-                  <font name="Consolas" size="18" style="1"/>
-                </properties>
-              </component>
-              <component id="421d7" class="javax.swing.JLabel">
-                <constraints>
-                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <font name="Consolas" size="18" style="1"/>
-                  <text value="Rate Per Day"/>
-                </properties>
-              </component>
-              <component id="51ecc" class="javax.swing.JTextField" binding="txtRatePerDay">
-                <constraints>
-                  <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="35"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <background color="-3355444"/>
-                  <font name="Consolas" size="18" style="1"/>
-                </properties>
-              </component>
-              <component id="33add" class="javax.swing.JLabel">
-                <constraints>
-                  <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <font name="Consolas" size="18" style="1"/>
-                  <text value="Rate Per Hours"/>
-                </properties>
-              </component>
-              <component id="e822f" class="javax.swing.JTextField" binding="txtRatePerHours">
-                <constraints>
-                  <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="35"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <background color="-3355444"/>
-                  <font name="Consolas" size="18" style="1"/>
-                </properties>
-              </component>
-              <component id="2862d" class="javax.swing.JLabel">
-                <constraints>
-                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <font name="Consolas" size="18" style="1"/>
-                  <text value="Total Amount"/>
-                </properties>
-              </component>
-              <component id="3594e" class="javax.swing.JTextField" binding="txtTotalAmount">
-                <constraints>
-                  <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="35"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <background color="-3355444"/>
-                  <font name="Consolas" size="18" style="1"/>
-                </properties>
-              </component>
-            </children>
-          </grid>
           <grid id="813d2" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
             <border type="none"/>
@@ -300,35 +32,37 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <grid id="2e652" binding="StartDatePicker" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                  <grid id="d0747" layout-manager="GridLayoutManager" row-count="1" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                     <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties/>
-                    <border type="none"/>
-                    <children/>
-                  </grid>
-                  <grid id="2b8bf" binding="EndDatePicker" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                    <margin top="0" left="0" bottom="0" right="0"/>
-                    <constraints>
-                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties/>
-                    <border type="none"/>
-                    <children/>
-                  </grid>
-                  <grid id="28176" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                    <margin top="0" left="0" bottom="0" right="0"/>
-                    <constraints>
-                      <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties/>
                     <border type="none"/>
                     <children>
+                      <grid id="2e652" binding="startPicker" layout-manager="BorderLayout" hgap="0" vgap="0">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="35"/>
+                          </grid>
+                        </constraints>
+                        <properties/>
+                        <border type="none"/>
+                        <children/>
+                      </grid>
+                      <grid id="2b8bf" binding="endPicker" layout-manager="BorderLayout" hgap="0" vgap="0">
+                        <constraints>
+                          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="35"/>
+                          </grid>
+                        </constraints>
+                        <properties/>
+                        <border type="none"/>
+                        <children/>
+                      </grid>
                       <component id="23f16" class="javax.swing.JButton" binding="printButton" default-binding="true">
                         <constraints>
-                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                          <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
                             <preferred-size width="-1" height="35"/>
                           </grid>
                         </constraints>
@@ -336,18 +70,306 @@
                           <text value="Print"/>
                         </properties>
                       </component>
+                      <component id="1ec3" class="javax.swing.JButton" binding="sortButton" default-binding="true">
+                        <constraints>
+                          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                            <preferred-size width="-1" height="35"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <text value="Sort"/>
+                        </properties>
+                      </component>
                     </children>
                   </grid>
                 </children>
               </grid>
-              <component id="f87ed" class="javax.swing.JTable" binding="table1" default-binding="true">
+              <scrollpane id="77136">
                 <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="50"/>
-                  </grid>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="b07d6" class="javax.swing.JTable" binding="payrollTable">
+                    <constraints/>
+                    <properties>
+                      <rowHeight value="35"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+            </children>
+          </grid>
+          <grid id="e34d6" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="10">
+            <margin top="0" left="20" bottom="0" right="20"/>
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <grid id="d86a" layout-manager="GridLayoutManager" row-count="10" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="20" vgap="20">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="256fb" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Consolas" size="18" style="1"/>
+                      <text value="Employee Id"/>
+                    </properties>
+                  </component>
+                  <component id="847d" class="javax.swing.JTextField" binding="txtEmployeeId">
+                    <constraints>
+                      <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="35"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <background color="-3355444"/>
+                      <font name="Consolas" size="18" style="1"/>
+                    </properties>
+                  </component>
+                  <component id="421d0" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Consolas" size="18" style="1"/>
+                      <text value="Name"/>
+                    </properties>
+                  </component>
+                  <component id="6e305" class="javax.swing.JTextField" binding="txtName">
+                    <constraints>
+                      <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="-1" height="35"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <background color="-3355444"/>
+                      <font name="Consolas" size="18" style="1"/>
+                    </properties>
+                  </component>
+                  <component id="ce517" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Consolas" size="18" style="1"/>
+                      <text value="Working Day"/>
+                    </properties>
+                  </component>
+                  <component id="e90df" class="javax.swing.JTextField" binding="txtWorkDay">
+                    <constraints>
+                      <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="35"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <background color="-3355444"/>
+                      <font name="Consolas" size="18" style="1"/>
+                    </properties>
+                  </component>
+                  <component id="76d5e" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Consolas" size="18" style="1"/>
+                      <text value="OT"/>
+                    </properties>
+                  </component>
+                  <component id="afae9" class="javax.swing.JTextField" binding="txtPH">
+                    <constraints>
+                      <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="35"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <background color="-3355444"/>
+                      <font name="Consolas" size="18" style="1"/>
+                    </properties>
+                  </component>
+                  <component id="84574" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Consolas" size="18" style="1"/>
+                      <text value="Bonus"/>
+                    </properties>
+                  </component>
+                  <component id="65a27" class="javax.swing.JTextField" binding="txtBonus">
+                    <constraints>
+                      <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="35"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <background color="-3355444"/>
+                      <font name="Consolas" size="18" style="1"/>
+                    </properties>
+                  </component>
+                  <component id="5c72d" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Consolas" size="18" style="1"/>
+                      <text value="Insurance"/>
+                    </properties>
+                  </component>
+                  <component id="7fa1a" class="javax.swing.JTextField" binding="txtInsurance">
+                    <constraints>
+                      <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="35"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <background color="-3355444"/>
+                      <font name="Consolas" size="18" style="1"/>
+                    </properties>
+                  </component>
+                  <component id="421d7" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Consolas" size="18" style="1"/>
+                      <text value="Rate Per Day"/>
+                    </properties>
+                  </component>
+                  <component id="51ecc" class="javax.swing.JTextField" binding="txtRatePerDay">
+                    <constraints>
+                      <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="35"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <background color="-3355444"/>
+                      <font name="Consolas" size="18" style="1"/>
+                    </properties>
+                  </component>
+                  <component id="33add" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Consolas" size="18" style="1"/>
+                      <text value="Rate Per Hours"/>
+                    </properties>
+                  </component>
+                  <component id="e822f" class="javax.swing.JTextField" binding="txtRatePerHours">
+                    <constraints>
+                      <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="35"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <background color="-3355444"/>
+                      <font name="Consolas" size="18" style="1"/>
+                    </properties>
+                  </component>
+                  <component id="2862d" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Consolas" size="18" style="1"/>
+                      <text value="Total Amount"/>
+                    </properties>
+                  </component>
+                  <component id="3594e" class="javax.swing.JTextField" binding="txtTotalAmount">
+                    <constraints>
+                      <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="35"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <background color="-3355444"/>
+                      <font name="Consolas" size="18" style="1"/>
+                    </properties>
+                  </component>
+                  <component id="d59d8" class="javax.swing.JTextField" binding="txtSearch">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="40"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <background color="-3355444"/>
+                      <font name="Consolas" size="16" style="1"/>
+                    </properties>
+                  </component>
+                  <component id="55d3d" class="javax.swing.JButton" binding="searchButton" default-binding="true">
+                    <constraints>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                        <preferred-size width="-1" height="40"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <background color="-15066139"/>
+                      <font name="Consolas" size="16" style="1"/>
+                      <foreground color="-1"/>
+                      <text value="Search"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+            </children>
+          </grid>
+          <grid id="cbd4e" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="2357e" class="javax.swing.JButton" binding="calculateButton" default-binding="true">
+                <constraints/>
                 <properties>
+                  <background color="-9485631"/>
                   <font name="Consolas" size="16" style="1"/>
+                  <foreground color="-1"/>
+                  <preferredSize width="115" height="35"/>
+                  <text value="Calculate"/>
+                </properties>
+              </component>
+              <component id="692a7" class="javax.swing.JButton" binding="updateButton" default-binding="true">
+                <constraints/>
+                <properties>
+                  <background color="-40121"/>
+                  <font name="Consolas" size="16" style="1"/>
+                  <foreground color="-1"/>
+                  <preferredSize width="115" height="34"/>
+                  <text value="Update"/>
+                </properties>
+              </component>
+              <component id="8f9d8" class="javax.swing.JButton" binding="deleteButton" default-binding="true">
+                <constraints/>
+                <properties>
+                  <background color="-4780799"/>
+                  <font name="Consolas" size="16" style="1"/>
+                  <foreground color="-1"/>
+                  <preferredSize width="115" height="34"/>
+                  <text value="Delete"/>
+                </properties>
+              </component>
+              <component id="f6402" class="javax.swing.JButton" binding="exitButton" default-binding="true">
+                <constraints/>
+                <properties>
+                  <background color="-2345659"/>
+                  <font name="Consolas" size="16" style="1"/>
+                  <foreground color="-1"/>
+                  <preferredSize width="115" height="34"/>
+                  <text value="Exit"/>
                 </properties>
               </component>
             </children>
